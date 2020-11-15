@@ -14,7 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    UserServiceImpl userService;
+    private UserServiceImpl userService;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -30,7 +30,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/actuator/shutdown").permitAll()
                 .antMatchers("/api/register").permitAll()
-                .antMatchers("/api/quizzes/**").permitAll()
                 .antMatchers("/h2-console/**").permitAll()
                 .antMatchers("/**").authenticated()
                 .and().httpBasic();

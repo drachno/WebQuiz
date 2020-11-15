@@ -16,7 +16,7 @@ import javax.validation.constraints.NotNull;
 public class AccountController {
 
     @Autowired
-    public UserService userService;
+    private UserService userService;
 
     @Autowired
     public UserRepository userRepository;

@@ -4,7 +4,7 @@ import webquiz.engine.entity.AnswerWrapper;
 import webquiz.engine.entity.ResponseStatus;
 import webquiz.engine.entity.AnsweredQuizzes;
 import webquiz.engine.entity.Quiz;
-import webquiz.engine.service.QuizServiceImpl;
+import webquiz.engine.service.QuizService;
 import webquiz.engine.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -22,10 +22,10 @@ import javax.validation.constraints.NotNull;
 public class QuizController {
 
     @Autowired
-    QuizServiceImpl quizService;
+    private QuizService quizService;
 
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     @PostMapping(path = "/api/quizzes")
     public Quiz addQuizz(@RequestBody @Valid @NotNull Quiz quiz, Authentication authentication) {
